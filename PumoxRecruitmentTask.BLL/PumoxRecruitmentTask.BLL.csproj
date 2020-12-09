@@ -5,11 +5,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Dtos" />
+      <ProjectReference Include="..\PumoxRecruitmentTask.DAL\PumoxRecruitmentTask.DAL.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\PumoxRecruitmentTask.DAL\PumoxRecruitmentTask.DAL.csproj" />
+      <PackageReference Include="AutoMapper" Version="8.1.1" />
     </ItemGroup>
 
 </Project>

@@ -22,6 +22,11 @@ namespace PumoxRecruitmentTask.DAL.UnitOfWork
         {
             await Context.SaveChangesAsync();
         }
+
+        public void Save()
+        {
+            Context.SaveChanges();
+        }
         
         public void Dispose()
         {

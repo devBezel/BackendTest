@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PumoxRecruitmentTask.DAL.Interfaces;
 using PumoxRecruitmentTask.DAL.Interfaces.Repositories;
+using Microsoft.EntityFrameworkCore.Query;
 
 
 namespace PumoxRecruitmentTask.DAL.Repositories
@@ -16,6 +19,14 @@ namespace PumoxRecruitmentTask.DAL.Repositories
         public GenericRepository(TContext context)
         {
             Context = context ?? throw new ArgumentException(nameof(Context));
+        }
+
+        public async Task<TModel> GetSingleAsync(Expression<Func<TModel, bool>> expression, Func<IQueryable<TModel>, 
+            IQueryable<TModel>> include = null)
+        {
+            var query = GetQueryable(expression, include);
+
+            return await query.FirstOrDefaultAsync();
         }
 
         public virtual async Task<TModel> InsertAsync(TModel model)
@@ -38,6 +49,23 @@ namespace PumoxRecruitmentTask.DAL.Repositories
         public virtual async Task<int> SaveAsync()
         {
             return await Context.SaveChangesAsync();
+        }
+        
+        private IQueryable<TModel> GetQueryable(Expression<Func<TModel, bool>> expression = null, 
+            Func<IQueryable<TModel>, IQueryable<TModel>> include = null)
+        {
+            IQueryable<TModel> query = Context.Set<TModel>();
+            if (include != null)
+            {
+                query = include(query);
+            }
+
+            if (expression != null)
+            {
+                query = query.Where(expression);
+            }
+
+            return query;
         }
     }
 }
