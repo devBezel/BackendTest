@@ -1,6 +1,6 @@
 ﻿namespace PumoxRecruitmentTask.DAL.Enums
 {
-    public enum JobType
+    public enum JobTitle
     {
         Administrator,
         Developer,
