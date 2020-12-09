@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using PumoxRecruitmentTask.DAL.DataAccess;
-using PumoxRecruitmentTask.DAL.Interfaces.Company;
+using PumoxRecruitmentTask.DAL.Interfaces.Repositories.Company;
 using PumoxRecruitmentTask.DAL.Repositories.Company;
 
 namespace PumoxRecruitmentTask.DAL.UnitOfWork

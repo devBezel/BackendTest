@@ -6,7 +6,10 @@
 
     <ItemGroup>
       <Folder Include="Dtos" />
-      <Folder Include="Services" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PumoxRecruitmentTask.DAL\PumoxRecruitmentTask.DAL.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,8 +1,9 @@
-﻿using PumoxRecruitmentTask.DAL.Interfaces.Company;
+﻿using System;
+using PumoxRecruitmentTask.DAL.Interfaces.Repositories.Company;
 
 namespace PumoxRecruitmentTask.DAL.UnitOfWork
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
         ICompanyRepository CompanyRepository { get; }
     }

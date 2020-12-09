@@ -1,6 +1,6 @@
 ﻿using PumoxRecruitmentTask.DAL.DataAccess;
 using PumoxRecruitmentTask.DAL.DataAccess.Models;
-using PumoxRecruitmentTask.DAL.Interfaces.Company;
+using PumoxRecruitmentTask.DAL.Interfaces.Repositories.Company;
 
 namespace PumoxRecruitmentTask.DAL.Repositories.Company
 {

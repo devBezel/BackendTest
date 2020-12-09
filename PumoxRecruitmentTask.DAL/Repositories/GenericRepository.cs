@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PumoxRecruitmentTask.DAL.Interfaces;
+using PumoxRecruitmentTask.DAL.Interfaces.Repositories;
 
 
 namespace PumoxRecruitmentTask.DAL.Repositories
