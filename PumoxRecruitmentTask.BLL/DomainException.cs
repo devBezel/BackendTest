@@ -5,7 +5,7 @@ namespace PumoxRecruitmentTask.BLL
     public class DomainException : Exception
     {
         private DomainExceptionCode ExceptionCode { get; set; }
-        public string Description { get; set; }
+        private string Description { get; set; }
 
         public DomainException(DomainExceptionCode exceptionCode, string description = "")
         {

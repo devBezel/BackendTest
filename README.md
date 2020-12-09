@@ -8,7 +8,7 @@ I have solved the following problems here
 - I implemented basic crud operations
 - Includes implemented simple authentication
 - The application is made in a three-layer architecture (Data access layer, Business Logic Layer, API)
-
+- Automatic migration execution during the need to update the database has been implemented
 
 
 

@@ -1,6 +1,10 @@
-﻿namespace PumoxRecruitmentTask.API.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace PumoxRecruitmentTask.API.Controllers
 {
-    public class CompanyController
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CompanyController : ControllerBase
     {
         
     }
