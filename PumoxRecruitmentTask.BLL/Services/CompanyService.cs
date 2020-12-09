@@ -12,26 +12,28 @@ namespace PumoxRecruitmentTask.BLL.Services
     public class CompanyService : ICompanyService
     {
         private readonly IUnitOfWork _unitOfWork;
-        public CompanyService(IUnitOfWork unitOfWork)
+        private readonly IMapper _mapper;
+        public CompanyService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<CreatedCompanyResponseDto> InsertAsync(CompanyDto dto)
         {
-            var model = Mapper.Map<CompanyModel>(dto);
+            var model = _mapper.Map<CompanyModel>(dto);
             var result = await _unitOfWork.CompanyRepository.InsertAsync(model);
             await _unitOfWork.SaveAsync();
             
             model.Id = result.Id;
-            return Mapper.Map<CreatedCompanyResponseDto>(model);
+            return _mapper.Map<CreatedCompanyResponseDto>(model);
         }
 
         public async Task<CompanyDto> UpdateAsync(long id, CompanyDto dto)
         {
             var model = await _unitOfWork.CompanyRepository.GetSingleAsync(company => company.Id == id, i 
                 => i.Include(company => company.Employees));
-            Mapper.Map(dto, model);
+            _mapper.Map(dto, model);
             await _unitOfWork.SaveAsync();
 
 
