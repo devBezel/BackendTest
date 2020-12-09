@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PumoxRecruitmentTask.API", "PumoxRecruitmentTask.API\PumoxRecruitmentTask.API.csproj", "{A0925D78-08FF-44CE-8F4C-F1289CAFA1C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PumoxRecruitmentTask.DAL", "PumoxRecruitmentTask.DAL\PumoxRecruitmentTask.DAL.csproj", "{D3A2DAC1-3ACB-4622-8E84-C5F47E59AF28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PumoxRecruitmentTask.BLL", "PumoxRecruitmentTask.BLL\PumoxRecruitmentTask.BLL.csproj", "{74C1FCE2-C8A8-4774-AFDF-410E997FCB19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PumoxRecruitmentTask.DAL.Tests", "PumoxRecruitmentTask.DAL.Tests\PumoxRecruitmentTask.DAL.Tests.csproj", "{F8E5C141-A8E3-4EE1-9069-BCE2892004F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PumoxRecruitmentTask.BLL.Tests", "PumoxRecruitmentTask.BLL.Tests\PumoxRecruitmentTask.BLL.Tests.csproj", "{D1F0574F-54EB-4231-950F-4FE67A53B177}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PumoxRecruitmentTask.DAL.Migrations", "PumoxRecruitmentTask.DAL.Migrations\PumoxRecruitmentTask.DAL.Migrations.csproj", "{8EFE5459-D238-4DE2-A495-0798FD9F49DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0925D78-08FF-44CE-8F4C-F1289CAFA1C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0925D78-08FF-44CE-8F4C-F1289CAFA1C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0925D78-08FF-44CE-8F4C-F1289CAFA1C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0925D78-08FF-44CE-8F4C-F1289CAFA1C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3A2DAC1-3ACB-4622-8E84-C5F47E59AF28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3A2DAC1-3ACB-4622-8E84-C5F47E59AF28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3A2DAC1-3ACB-4622-8E84-C5F47E59AF28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3A2DAC1-3ACB-4622-8E84-C5F47E59AF28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C1FCE2-C8A8-4774-AFDF-410E997FCB19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C1FCE2-C8A8-4774-AFDF-410E997FCB19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C1FCE2-C8A8-4774-AFDF-410E997FCB19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C1FCE2-C8A8-4774-AFDF-410E997FCB19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8E5C141-A8E3-4EE1-9069-BCE2892004F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8E5C141-A8E3-4EE1-9069-BCE2892004F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8E5C141-A8E3-4EE1-9069-BCE2892004F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8E5C141-A8E3-4EE1-9069-BCE2892004F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1F0574F-54EB-4231-950F-4FE67A53B177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1F0574F-54EB-4231-950F-4FE67A53B177}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1F0574F-54EB-4231-950F-4FE67A53B177}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1F0574F-54EB-4231-950F-4FE67A53B177}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EFE5459-D238-4DE2-A495-0798FD9F49DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EFE5459-D238-4DE2-A495-0798FD9F49DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EFE5459-D238-4DE2-A495-0798FD9F49DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EFE5459-D238-4DE2-A495-0798FD9F49DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
