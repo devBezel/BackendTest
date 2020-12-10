@@ -9,7 +9,7 @@ I have solved the following problems here
 - Includes implemented simple authentication
 - The application is made in a three-layer architecture (Data access layer, Business Logic Layer, API)
 - Automatic migration execution during the need to update the database has been implemented
-
+- Implements automatic creation of documentation that can be used by the recruiter for api testing
 
 
 

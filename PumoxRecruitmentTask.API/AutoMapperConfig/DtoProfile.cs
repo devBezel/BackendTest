@@ -17,24 +17,28 @@ namespace PumoxRecruitmentTask.API.AutoMapperConfig
                     options.Condition((src, dest, sourceMember) => sourceMember != null));
             CreateMap<CompanyModel, CompanyDto>()
                 .PreserveReferences()
-                .ForAllMembers(options => 
+                .ForAllMembers(options =>
                     options.Condition((src, dest, sourceMember) => sourceMember != null));
-            
+
             CreateMap<CompanyDto, CreatedCompanyResponseDto>();
-            
-            CreateMap<EmployeeDto, EmployeeModel>()
-                .PreserveReferences()
-                .ForMember(model => model.JobTitle, options => 
-                    options.MapFrom(model => Enum.Parse(typeof(JobTitle), model.JobTitle.ToString())))
-                .ForAllMembers(options => 
-                    options.Condition((src, dest, sourceMember) => sourceMember != null));
+            CreateMap<EmployeeDto, CreatedCompanyResponseDto>();
+            // CreateMap<object, CreatedCompanyResponseDto>();
             
             CreateMap<EmployeeModel, EmployeeDto>()
                 .PreserveReferences()
-                .ForMember(dto => dto.JobTitle, options => 
-                    options.MapFrom(model => model.JobTitle.ToString()))
-                .ForAllMembers(options => 
-                    options.Condition((src, dest, sourceMember) => sourceMember != null));
+                .ForMember(
+                    employeeDto => employeeDto.JobTitle,
+                    opt => opt.MapFrom(
+                        model => model.JobTitle.ToString()))
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
+            CreateMap<EmployeeDto, EmployeeModel>()
+                .PreserveReferences()
+                .ForMember(
+                    employeeModel => employeeModel.JobTitle,
+                    opt => opt.MapFrom(
+                        dto => Enum.Parse(typeof(JobTitle), dto.JobTitle)))
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
             
                 
         }

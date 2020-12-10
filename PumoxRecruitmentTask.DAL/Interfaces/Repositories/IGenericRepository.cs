@@ -11,6 +11,7 @@ namespace PumoxRecruitmentTask.DAL.Interfaces.Repositories
             IQueryable<TModel>> include = null);
         Task<TModel> InsertAsync(TModel model);
         void Update(TModel model);
+        Task<bool> ContainsAsync(long id);
         void Remove(TModel model);
         Task<int> SaveAsync();
     }

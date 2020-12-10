@@ -25,8 +25,8 @@ namespace PumoxRecruitmentTask.BLL.Services
             var result = await _unitOfWork.CompanyRepository.InsertAsync(model);
             await _unitOfWork.SaveAsync();
             
-            model.Id = result.Id;
-            return _mapper.Map<CreatedCompanyResponseDto>(model);
+            dto.Id = result.Id;
+            return _mapper.Map<CreatedCompanyResponseDto>(dto);
         }
 
         public async Task<CompanyDto> UpdateAsync(long id, CompanyDto dto)
@@ -38,6 +38,11 @@ namespace PumoxRecruitmentTask.BLL.Services
 
 
             return dto;
+        }
+
+        public async Task<bool> ContainsAsync(long id)
+        {
+            return await _unitOfWork.CompanyRepository.ContainsAsync(id);
         }
 
         public async Task RemoveAsync(long id)

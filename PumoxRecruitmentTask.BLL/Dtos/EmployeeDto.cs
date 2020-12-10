@@ -18,7 +18,6 @@ namespace PumoxRecruitmentTask.BLL.Dtos
         [Required]
         public DateTime DateOfBirth { get; set; }
         [Required]
-        [EnumDataType(typeof(JobTitle))]
-        public JobTitle JobTitle { get; set; }
+        public string JobTitle { get; set; }
     }
 }

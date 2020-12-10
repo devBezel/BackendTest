@@ -50,6 +50,11 @@ namespace PumoxRecruitmentTask.DAL.Repositories
         {
             return await Context.SaveChangesAsync();
         }
+
+        public virtual async Task<bool> ContainsAsync(long id)
+        {
+            return await Context.Set<TModel>().AnyAsync(x => x.Id == id);
+        }
         
         private IQueryable<TModel> GetQueryable(Expression<Func<TModel, bool>> expression = null, 
             Func<IQueryable<TModel>, IQueryable<TModel>> include = null)

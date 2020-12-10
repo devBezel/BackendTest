@@ -10,5 +10,6 @@ namespace PumoxRecruitmentTask.BLL.Interfaces.Services
         Task<CreatedCompanyResponseDto> InsertAsync(CompanyDto model);
         Task<CompanyDto> UpdateAsync(long id, CompanyDto dto);
         Task RemoveAsync(long id);
+        Task<bool> ContainsAsync(long id);
     }
 }
