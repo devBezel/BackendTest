@@ -71,7 +71,7 @@ dotnet test
 ```
 
 #### Run development server
-By default, the server starts on port 5001 (http: 5000). **Before starting the server, you must create a database named** `pumox_test`
+By default, the server starts on port 5000 (http). **Before starting the server, you must create a database named** `pumox_test`
 
 ```bash
 dotnet run
