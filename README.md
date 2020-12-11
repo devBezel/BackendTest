@@ -19,7 +19,7 @@ I have solved the following problems here
 - [x] Basic Authentication.
 - [x] Use Entity Framework / NHibernate.
 
-###Authentication
+### Authentication
 while doing the authentication, I used a ready-made solution, which is located below
 - [ZNetCS.AspNetCore.Authentication.Basic](https://github.com/msmolka/ZNetCS.AspNetCore.Authentication.Basic)
 
