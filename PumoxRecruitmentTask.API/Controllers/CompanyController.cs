@@ -1,12 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PumoxRecruitmentTask.BLL;
 using PumoxRecruitmentTask.BLL.Dtos;
+using PumoxRecruitmentTask.BLL.Dtos.Responses;
 using PumoxRecruitmentTask.BLL.Interfaces.Services;
-using PumoxRecruitmentTask.DAL.Enums;
 
 namespace PumoxRecruitmentTask.API.Controllers
 {
@@ -19,6 +16,17 @@ namespace PumoxRecruitmentTask.API.Controllers
         {
             _companyService = companyService;
         }
+
+        [HttpPost("search")]
+        public async Task<IActionResult> SearchAsync([FromBody] SearchCompanyDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(dto);
+            }
+            
+            return Ok(new SearchResponseDto { Results = await _companyService.SearchAsync(dto) });
+        }
         
         [HttpPost("create")]
         [AllowAnonymous]
@@ -26,7 +34,7 @@ namespace PumoxRecruitmentTask.API.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(dto);
             }
             
             var result = await _companyService.InsertAsync(dto);
@@ -38,15 +46,15 @@ namespace PumoxRecruitmentTask.API.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(dto);
             }
 
             if (!await _companyService.ContainsAsync(id))
             {
-                return NotFound();
+                return NotFound(id);
             }
 
-            var result = await _companyService.UpdateAsync(id, dto);
+            await _companyService.UpdateAsync(id, dto);
             return Ok();
         }
 
@@ -55,7 +63,7 @@ namespace PumoxRecruitmentTask.API.Controllers
         {
             if (!await _companyService.ContainsAsync(id))
             {
-                return NotFound();
+                return NotFound(id);
             }
             
             await _companyService.RemoveAsync(id);

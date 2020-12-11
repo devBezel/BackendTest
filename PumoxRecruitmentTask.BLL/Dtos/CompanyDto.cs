@@ -12,6 +12,6 @@ namespace PumoxRecruitmentTask.BLL.Dtos
         public string Name { get; set; }
         [Required]
         public int EstablishmentYear { get; set; }
-        public ICollection<EmployeeDto> Employees { get; set; }
+        public IEnumerable<EmployeeDto> Employees { get; set; }
     }
 }

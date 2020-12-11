@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using PumoxRecruitmentTask.BLL.Dtos;
@@ -38,6 +40,40 @@ namespace PumoxRecruitmentTask.BLL.Services
 
 
             return dto;
+        }
+
+        public async Task<IEnumerable<CompanyDto>> SearchAsync(SearchCompanyDto dto)
+        {
+            var companies = await _unitOfWork.CompanyRepository.GetAllAsync(null, 
+                i => i.Include(x => x.Employees));
+            
+            if (!string.IsNullOrEmpty(dto.Keyword))
+            {
+                foreach (var keyword in dto.Keyword.Split(' ').Select(x => x.ToLower()))
+                {
+                    companies = companies.Where(x => x.Name.ToLower().Contains(keyword));
+                }
+            }
+
+            if (dto.EmployeeDateOfBirthFrom.HasValue)
+            {
+                companies = companies.Where(company => company.Employees.Any(employee => 
+                    employee.DateOfBirth >= dto.EmployeeDateOfBirthFrom));
+            }
+
+            if (dto.EmployeeDateOfBirthTo.HasValue)
+            {
+                companies = companies.Where(company =>
+                    company.Employees.Any(employee => employee.DateOfBirth <= dto.EmployeeDateOfBirthTo));
+            }
+
+            if (dto.EmployeeJobTitles.Any())
+            {
+                companies = companies.Where(company => company.Employees.Any(t => 
+                    dto.EmployeeJobTitles.Contains(t.JobTitle.ToString())));
+            }
+
+            return _mapper.Map<IEnumerable<CompanyDto>>(companies);
         }
 
         public async Task<bool> ContainsAsync(long id)

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using PumoxRecruitmentTask.DAL.Interfaces;
 
@@ -13,6 +12,6 @@ namespace PumoxRecruitmentTask.DAL.DataAccess.Models
         public string Name { get; set; }
         [Required]
         public int EstablishmentYear { get; set; }
-        public ICollection<EmployeeModel> Employees { get; set; }
+        public IEnumerable<EmployeeModel> Employees { get; set; }
     }
 }
