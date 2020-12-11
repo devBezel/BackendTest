@@ -26,14 +26,6 @@ namespace PumoxRecruitmentTask.API.Tests
                     service.InsertAsync(null))
                     .Returns(Task.FromResult(createdDtoMock));
 
-            _mock.Setup(service =>
-                    service.UpdateAsync(1, null))
-                    .Returns(Task.FromResult(dtoMock));
-
-            _mock.Setup(service =>
-                    service.SearchAsync(null))
-                    .Returns(Task.FromResult(dtoMocks));
-            
             _companyController = new CompanyController(_mock.Object);
         }
         
