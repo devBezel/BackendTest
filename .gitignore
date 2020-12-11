@@ -2,7 +2,7 @@
 .vs
 .vscode
 
-
+*.DotSettings.user
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
@@ -14,4 +14,3 @@ bld/
 [Oo]bj/
 [Ll]og/
 
-PumoxRecruitmentTask.sln.DotSettings.user
