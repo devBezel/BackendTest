@@ -11,6 +11,25 @@ I have solved the following problems here
 - Automatic migration execution during the need to update the database has been implemented
 - Implements automatic creation of documentation that can be used by the recruiter for api testing
 
+## Done
+- [x] Create Company.
+- [x] Search Company.
+- [x] Update Company.
+- [x] Delete Company.
+- [x] Basic Authentication.
+- [x] Use Entity Framework / NHibernate.
+
+###Authentication
+while doing the authentication, I used a ready-made solution, which is located below
+- [ZNetCS.AspNetCore.Authentication.Basic](https://github.com/msmolka/ZNetCS.AspNetCore.Authentication.Basic)
+
+## API
+**API Url**: *http://localhost:5000*  
+**Login**: *admin*  
+**Password**: *admin*
+
+**Endpoints**
+![img_endpoints](https://imgur.com/5vscbbr.png)
 
 
 ## Setup

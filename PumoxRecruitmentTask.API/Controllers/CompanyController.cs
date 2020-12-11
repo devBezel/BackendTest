@@ -4,11 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 using PumoxRecruitmentTask.BLL.Dtos;
 using PumoxRecruitmentTask.BLL.Dtos.Responses;
 using PumoxRecruitmentTask.BLL.Interfaces.Services;
+using ZNetCS.AspNetCore.Authentication.Basic;
 
 namespace PumoxRecruitmentTask.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = BasicAuthenticationDefaults.AuthenticationScheme)]
     public class CompanyController : ControllerBase
     {
         private readonly ICompanyService _companyService;
@@ -18,6 +20,7 @@ namespace PumoxRecruitmentTask.API.Controllers
         }
 
         [HttpPost("search")]
+        [AllowAnonymous]
         public async Task<IActionResult> SearchAsync([FromBody] SearchCompanyDto dto)
         {
             if (!ModelState.IsValid)
@@ -29,7 +32,6 @@ namespace PumoxRecruitmentTask.API.Controllers
         }
         
         [HttpPost("create")]
-        [AllowAnonymous]
         public async Task<IActionResult> InsertAsync([FromBody] CompanyDto dto)
         {
             if (!ModelState.IsValid)
@@ -54,8 +56,8 @@ namespace PumoxRecruitmentTask.API.Controllers
                 return NotFound(id);
             }
 
-            await _companyService.UpdateAsync(id, dto);
-            return Ok();
+            var result = await _companyService.UpdateAsync(id, dto);
+            return Ok(result);
         }
 
         [HttpDelete("delete/{id}")]

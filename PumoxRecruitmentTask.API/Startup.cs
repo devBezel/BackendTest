@@ -9,12 +9,14 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using PumoxRecruitmentTask.API.Authentication;
 using PumoxRecruitmentTask.API.AutoMapperConfig;
 using PumoxRecruitmentTask.BLL.Interfaces.Services;
 using PumoxRecruitmentTask.BLL.Services;
 using PumoxRecruitmentTask.DAL.DataAccess;
 using PumoxRecruitmentTask.DAL.Migrations;
 using PumoxRecruitmentTask.DAL.UnitOfWork;
+using ZNetCS.AspNetCore.Authentication.Basic;
 
 namespace PumoxRecruitmentTask.API
 {
@@ -47,7 +49,15 @@ namespace PumoxRecruitmentTask.API
             {
                 options.UseMySql(Configuration.GetConnectionString("PumoxRecruitmentTaskDbString"));
             });
-
+            services.AddScoped<BasicAuthEvents>();
+            services.AddAuthentication(BasicAuthenticationDefaults.AuthenticationScheme)
+                .AddBasicAuthentication(options =>
+                {
+                    options.Realm = "PumoxRecruitmentTask";
+                    options.EventsType = typeof(BasicAuthEvents);
+                    options.AjaxRequestOptions.SuppressWwwAuthenticateHeader = true;
+                });
+            
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ICompanyService, CompanyService>();
             services.AddAutoMapper(cfg => cfg.AddProfile<DtoProfile>());
@@ -78,11 +88,13 @@ namespace PumoxRecruitmentTask.API
 
             app.UseHsts();
 
-            // app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
           
             app.UseRouting();
 
             app.UseAuthentication();
+
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
             
