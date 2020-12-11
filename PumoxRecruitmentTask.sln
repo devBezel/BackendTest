@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PumoxRecruitmentTask.BLL.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PumoxRecruitmentTask.DAL.Migrations", "PumoxRecruitmentTask.DAL.Migrations\PumoxRecruitmentTask.DAL.Migrations.csproj", "{8EFE5459-D238-4DE2-A495-0798FD9F49DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PumoxRecruitmentTask.API.Tests", "PumoxRecruitmentTask.API.Tests\PumoxRecruitmentTask.API.Tests.csproj", "{632E4FE8-FFF0-4BFF-BBD7-330BAF471755}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{8EFE5459-D238-4DE2-A495-0798FD9F49DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EFE5459-D238-4DE2-A495-0798FD9F49DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EFE5459-D238-4DE2-A495-0798FD9F49DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{632E4FE8-FFF0-4BFF-BBD7-330BAF471755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{632E4FE8-FFF0-4BFF-BBD7-330BAF471755}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{632E4FE8-FFF0-4BFF-BBD7-330BAF471755}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{632E4FE8-FFF0-4BFF-BBD7-330BAF471755}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

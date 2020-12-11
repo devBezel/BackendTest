@@ -35,6 +35,7 @@ while doing the authentication, I used a ready-made solution, which is located b
 ## Setup
 #### Requirements
 - [.NET Core](https://dotnet.microsoft.com/download), *>= 3.1*
+- MariaDB
 
 #### Install MySQL
 When installing the database you can use this docker file (_docker-compose.yaml_)

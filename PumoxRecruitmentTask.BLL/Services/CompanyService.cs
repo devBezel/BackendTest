@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -66,8 +67,8 @@ namespace PumoxRecruitmentTask.BLL.Services
                 companies = companies.Where(company =>
                     company.Employees.Any(employee => employee.DateOfBirth <= dto.EmployeeDateOfBirthTo));
             }
-
-            if (dto.EmployeeJobTitles.Any())
+            
+            if (dto.EmployeeJobTitles != null)
             {
                 companies = companies.Where(company => company.Employees.Any(t => 
                     dto.EmployeeJobTitles.Contains(t.JobTitle.ToString())));

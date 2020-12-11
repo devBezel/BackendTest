@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using PumoxRecruitmentTask.DAL.DataAccess.Models;
 
 namespace PumoxRecruitmentTask.DAL.Interfaces.Repositories
 {

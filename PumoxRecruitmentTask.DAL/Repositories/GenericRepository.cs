@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using PumoxRecruitmentTask.DAL.DataAccess.Models;
 using PumoxRecruitmentTask.DAL.Interfaces;
 using PumoxRecruitmentTask.DAL.Interfaces.Repositories;
 

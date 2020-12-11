@@ -22,8 +22,7 @@ namespace PumoxRecruitmentTask.API.AutoMapperConfig
 
             CreateMap<CompanyDto, CreatedCompanyResponseDto>();
             CreateMap<EmployeeDto, CreatedCompanyResponseDto>();
-            // CreateMap<object, CreatedCompanyResponseDto>();
-            
+
             CreateMap<EmployeeModel, EmployeeDto>()
                 .PreserveReferences()
                 .ForMember(
