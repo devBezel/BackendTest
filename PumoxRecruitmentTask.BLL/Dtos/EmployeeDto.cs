@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using PumoxRecruitmentTask.DAL.Enums;
 
 namespace PumoxRecruitmentTask.BLL.Dtos
 {

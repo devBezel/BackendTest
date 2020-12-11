@@ -134,7 +134,7 @@ namespace PumoxRecruitmentTask.BLL.Tests
         }
         
         [Fact]
-        public async Task Check_Search_Employees_JobTitle()
+        public async Task Check_Search_Companies_JobTitle()
         {
             var searchDto = new SearchCompanyDto
             {
@@ -147,7 +147,7 @@ namespace PumoxRecruitmentTask.BLL.Tests
         }
 
         [Fact]
-        public async Task Check_Search_Employees_JobTitles()
+        public async Task Check_Search_Companies_JobTitles()
         {
             var searchDto = new SearchCompanyDto
             {
@@ -168,6 +168,41 @@ namespace PumoxRecruitmentTask.BLL.Tests
             
             var result = (await _companyService.SearchAsync(searchDto)).ToList();
             Assert.True(result.Count == 1 && result.Any(x => x.Name.Contains(searchDto.Keyword)));
+        }
+        
+        [Fact]
+        public async Task Check_Search_Companies_EmployeeDateOfBirthFrom()
+        {
+            var searchDto = new SearchCompanyDto
+            {
+                EmployeeDateOfBirthFrom = new DateTime(1972, 06, 30)
+            };
+            var result = (await _companyService.SearchAsync(searchDto)).ToList();
+            Assert.True(result.Count == 2);
+        }
+        
+        [Fact]
+        public async Task Check_Search_Companies_EmployeeDateOfBirthTo()
+        {
+            var searchDto = new SearchCompanyDto
+            {
+                EmployeeDateOfBirthTo = new DateTime(1959, 11, 30)
+            };
+            var result = (await _companyService.SearchAsync(searchDto)).ToList();
+            Assert.True(result.Count == 1);
+        }
+        
+        [Fact]
+        public async Task Check_Search_Companies_EmployeeDateOfBirth()
+        {
+            var searchDto = new SearchCompanyDto
+            {
+                EmployeeDateOfBirthFrom = new DateTime(1959, 11, 30),
+                EmployeeDateOfBirthTo = new DateTime(1962, 09, 14),
+            };
+            
+            var result = (await _companyService.SearchAsync(searchDto)).ToList();
+            Assert.True(result.Count == 3);
         }
         
     }

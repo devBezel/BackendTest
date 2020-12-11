@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using PumoxRecruitmentTask.DAL.DataAccess.Models;
 
 namespace PumoxRecruitmentTask.BLL.Dtos
 {

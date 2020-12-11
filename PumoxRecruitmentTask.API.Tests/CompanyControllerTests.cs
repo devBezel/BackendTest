@@ -17,7 +17,7 @@ namespace PumoxRecruitmentTask.API.Tests
 
         public CompanyControllerTests()
         {
-            var dtoMock = new CompanyDto() { Id = 1 };
+            var dtoMock = new CompanyDto { Id = 1 };
             var createdDtoMock = new CreatedCompanyResponseDto() { Id = 1 };
 
             IEnumerable<CompanyDto> dtoMocks = new List<CompanyDto>{ dtoMock };
@@ -37,8 +37,6 @@ namespace PumoxRecruitmentTask.API.Tests
             _companyController = new CompanyController(_mock.Object);
         }
         
-        
-
         [Fact]
         public async Task Return_201_If_All_Is_Correct_Insert()
         {
